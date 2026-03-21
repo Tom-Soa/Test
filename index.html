@@ -1,0 +1,114 @@
+import React from 'react';
+import { Phone } from 'lucide-react';
+
+export default function TargoHero() {
+  // Reusable inline style for the top-right and bottom-left clipped corners
+  const clipPathStyle = {
+    clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))'
+  };
+
+  return (
+    <>
+      {/* Import Rubik Font */}
+      <style>
+        {`@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');`}
+      </style>
+
+      <div 
+        className="relative min-h-screen w-full overflow-hidden bg-black text-white"
+        style={{ fontFamily: "'Rubik', sans-serif" }}
+      >
+        {/* Background Video (100% opacity, no dark overlay) */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover z-0"
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260227_042027_c4b2f2ea-1c7c-4d6e-9e3d-81a78063703f.mp4"
+        />
+
+        {/* Main Layout Wrapper */}
+        <div className="relative z-10 flex min-h-screen flex-col px-8 md:px-16 pt-8 pb-8 md:pb-12">
+          
+          {/* Header */}
+          <header className="flex items-center justify-between">
+            {/* Logo */}
+            <div className="flex items-center gap-3 cursor-pointer">
+              {/* Abstract SVG Symbol */}
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 0L32 16L16 32L0 16L16 0Z" fill="white" fillOpacity="0.1"/>
+                <path d="M16 8L24 16L16 24L8 16L16 8Z" fill="#EE3F2C"/>
+                <path d="M0 16L16 0V32L0 16Z" fill="white"/>
+              </svg>
+              <span className="text-2xl font-bold tracking-tight lowercase">targo</span>
+            </div>
+
+            {/* Navigation Links */}
+            <nav className="hidden md:flex gap-8 text-sm font-medium">
+              <a href="#home" className="hover:text-[#EE3F2C] transition-colors">Home</a>
+              <a href="#about" className="hover:text-[#EE3F2C] transition-colors">About</a>
+              <a href="#contact" className="hover:text-[#EE3F2C] transition-colors">Contact Us</a>
+            </nav>
+
+            {/* Header Button */}
+            <button 
+              className="bg-[#EE3F2C] px-5 py-2.5 text-sm font-bold uppercase tracking-wider text-white hover:bg-red-600 transition-colors"
+              style={clipPathStyle}
+            >
+              Contact Us
+            </button>
+          </header>
+
+          {/* Hero Content (Positioned in the upper-third) */}
+          <main className="flex-grow flex flex-col pt-20 md:pt-32">
+            <div className="max-w-3xl">
+              <h1 className="mb-8 text-[42px] font-bold uppercase leading-[1.1] tracking-[-0.04em] md:text-[64px]">
+                Swift and Simple <br /> Transport
+              </h1>
+              
+              <button 
+                className="bg-[#EE3F2C] px-8 py-4 text-sm font-bold uppercase tracking-wider text-white hover:bg-red-600 transition-colors"
+                style={clipPathStyle}
+              >
+                Get Started
+              </button>
+            </div>
+          </main>
+
+          {/* Bottom Widget (Liquid Glass Effect) */}
+          <div className="mt-auto max-w-sm">
+            <div className="relative overflow-hidden rounded-sm border border-white/12 p-6 shadow-[inset_0_4px_24px_rgba(255,255,255,0.05)]"
+                 style={{
+                   backdropFilter: 'blur(40px) saturate(180%)',
+                   WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+                   backgroundColor: 'rgba(255, 255, 255, 0.03)'
+                 }}>
+              
+              {/* Shine Element */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent" />
+              
+              <div className="relative z-10 flex flex-col gap-4">
+                <div>
+                  <h3 className="text-lg font-bold uppercase tracking-tight">Book a Free Consultation</h3>
+                  <p className="mt-1 text-sm text-white/70">
+                    Speak with our logistics experts to optimize your supply chain today.
+                  </p>
+                </div>
+                
+                <button 
+                  className="flex w-fit items-center gap-2 bg-white px-5 py-3 text-sm font-bold uppercase tracking-wider text-black hover:bg-gray-200 transition-colors"
+                  style={clipPathStyle}
+                >
+                  <Phone size={16} className="text-[#EE3F2C]" />
+                  <span>Book a Call</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </>
+  );
+}
